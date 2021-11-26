@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+#PBS -q sequentiel
+#PBS -l mem=60g
+#PBS -l walltime=24:00:00
+#PBS -N 07c_fastq
+
+
+
+
+
+ASSEMBLY=$SCRATCH/gambic/trinity_denovo_assembly/Trinity.fasta
+MOTIFS=$SCRATCH/gambic/trinity_denovo_assembly/Trinity.fasta.transdecoder_dir/Seq_with_orfs2.txt
+
+SEQTK="path_to_bin"
+
+
+$SEQTK
+
+cd $SCRATCH/gambic/trinity_denovo_assembly/
+
+#sed -i 's/::/,/g' Trinity.fasta.transdecoder_dir/longest_orfs.pep
+#cut -d "," -f 2 Trinity.fasta.transdecoder_dir/longest_orfs.pep | grep "TRINI" | sort | uniq > Trinity.fasta.transdecoder_dir/Seq_with_orfs2.txt
+
+seqtk subseq $ASSEMBLY $MOTIFS &> Trinity_orf.fasta
