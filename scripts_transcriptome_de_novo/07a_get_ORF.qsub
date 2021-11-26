@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#PBS -q sequentiel
+#PBS -l mem=60g
+#PBS -l walltime=24:00:00
+#PBS -N 07a_get_orf
+
+
+
+TRANS="path_to_bin"
+ASSEMBLY=$SCRATCH/gambic/trinity_denovo_assembly/Trinity.fasta
+
+
+$TRANS
+cd $SCRATCH/gambic/trinity_denovo_assembly
+
+TransDecoder.LongOrfs -t $ASSEMBLY &> Transdecoder_results.txt
