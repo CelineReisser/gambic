@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#PBS -q omp
+#PBS -l walltime=48:00:00
+#PBS -l mem=110g
+#PBS -l ncpus=21
+#PBS -N 05_bbnorm
+
+
+BBNORM="path_to_bin"
+
+
+$BBNORM
+cd $SCRATCH/gambic
+
+bbnorm.sh in=R1.fq in2=R2.fq out=R1_norm.fq out2=R2_norm.fq target=200 mindepth=5 threads=20
+
