@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#PBS -q omp
+#PBS -l walltime=48:00:00
+#PBS -l mem=110g
+#PBS -l ncpus=21
+#PBS -N 06a_trinity_norm
+
+
+TRINITY="path_to_bin"
+
+
+$TRINITY
+cd $SCRATCH/gambic/
+
+Trinity --seqType "fq" --max_memory 100G --left R1_norm.fq --right R2_norm.fq --SS_lib_type FR --CPU 20 --output $SCRATCH/gambic/trinity_denovo_assembly
