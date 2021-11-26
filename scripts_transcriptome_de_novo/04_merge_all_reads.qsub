@@ -5,7 +5,7 @@
 #PBS -l ncpus=21
 #PBS -N 04_rcorrector
 
-#RCORR=". /appli/bioinfo/rcorrector/1.0.4/env.sh"
+#RCORR="path_to_bin"
 
 
 cd $SCRATCH/gambic/03_trimmed
