@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#PBS -q sequentiel
+#PBS -l walltime=24:00:00
+#PBS -l mem=30g
+
+
+cd $DATAWORK/gambusie/rnaseq/02_data/00_fastqc_raw
+
+#load environment
+path-to-conda-bin
+
+conda activate multiqc
+
+multiqc $DATAWORK/gambusie/rnaseq/02_data/00_fastqc_raw
