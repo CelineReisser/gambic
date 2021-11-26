@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#PBS -q sequentiel
+#PBS -l walltime=20:00:00
+#PBS -l mem=110g
+#PBS -N 06b_trinity_stats
+
+TRINITY=".path_to_bin"
+
+
+$TRINITY
+cd $SCRATCH/gambic/
+
+TrinityStats.pl $SCRATCH/gambic/trinity_denovo_assembly/Trinity.fasta > $SCRATCH/gambic/trinity_denovo_assembly/Trinity_stats.txt
+
