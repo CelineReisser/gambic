@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#PBS -q sequentiel
+#PBS -l mem=60g
+#PBS -l walltime=24:00:00
+#PBS -N get-NAME
+
+ASSEMBLY=$SCRATCH/gambic/trinity_denovo_assembly/Trinity.fasta.transdecoder_dir/longest_orfs.pep
+INDIR=$SCRATCH//gambic/trinity_denovo_assembly/Trinity.fasta.transdecoder_dir/
+
+cd $INDIR
+
+cut -f 3 -d ":" $ASSEMBLY | grep "TRINITY" &> $SCRATCH//gambic/trinity_denovo_assembly/Trinity.fasta.transdecoder_dir/Seq_with_orfs.txt
